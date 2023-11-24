@@ -5,7 +5,7 @@ import profile from "../assets/profile.jpg";
 
 const Header = () => {
   return (
-    <div className="w-full h-20 bg-slate-900 border-b-[4px] border-b-orange-400 ">
+    <div className="w-full h-20 bg-slate-900 border-b-[4px] border-b-orange-400 sticky top-0 z-50">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
         <div>
           <img src={logo} alt="logo" className="h-10"></img>
