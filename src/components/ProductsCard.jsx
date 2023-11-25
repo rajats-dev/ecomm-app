@@ -1,10 +1,21 @@
 import React from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const ProductsCard = ({ product }) => {
-  console.log(product);
+  const navigate = useNavigate();
+  const _id = product.title;
+  const idString = _id.toLowerCase().split(" ").join("");
+
+  const handleDetails = () => {
+    navigate(`/product/${idString}`, { state: { item: product } });
+  };
+
   return (
     <div className="group">
-      <div className="w-full h-72 cursor-pointer overflow-hidden">
+      <div
+        onClick={handleDetails}
+        className="w-full h-72 cursor-pointer overflow-hidden"
+      >
         <img
           className="w-full h-full object-cover group-hover:scale-110 duration-500"
           src={product.image}
