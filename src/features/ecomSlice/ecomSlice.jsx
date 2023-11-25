@@ -19,7 +19,7 @@ const ecomSlice = createSlice({
     },
     deleteItem: (state, action) => {
       state.productData = state.productData.filter(
-        (item) => item._id !== action.payload._id
+        (item) => item._id !== action.payload
       );
     },
     increamentQuantity: (state, action) => {

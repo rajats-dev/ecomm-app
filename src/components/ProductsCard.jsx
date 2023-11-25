@@ -48,7 +48,7 @@ const ProductsCard = ({ product }) => {
                 })
               ) & toast.success(`${product.title} is added`)
             }
-            className="z-20 w-[150px] py-1 hover:text-gray-900 cursor-pointer duration-500 translate-x-28 group-hover:-translate-x-[82px] bg-red-600 text-white rounded-full font-semibold"
+            className="z-20 w-[150px] py-1 hover:text-gray-900 cursor-pointer duration-300 translate-x-28 group-hover:-translate-x-[82px] bg-red-600 text-white rounded-full font-semibold"
           >
             Add To Cart
           </button>
