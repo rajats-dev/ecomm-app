@@ -3,8 +3,10 @@ import logo from "../assets/logo.jpg";
 import cart from "../assets/cart.png";
 import profile from "../assets/profile.jpg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const productData = useSelector((state) => state.ecom.productData);
   return (
     <div className="w-full h-20 bg-slate-900 border-b-[4px] border-b-orange-400 sticky top-0 z-50">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
@@ -31,12 +33,14 @@ const Header = () => {
               Blog
             </li>
           </ul>
-          <div className="relative px-4">
-            <img src={cart} alt="cart" className="w-9" />
-            <span className="text-white text-[1px] bg-red-500 absolute bottom-4 left-8 rounded-full px-2 font-semibold">
-              7
-            </span>
-          </div>
+          <Link to={`/cart`}>
+            <div className="relative px-4">
+              <img src={cart} alt="cart" className="w-9" />
+              <span className="text-white text-[1px] bg-red-500 absolute bottom-4 left-8 rounded-full px-2 font-semibold">
+                {productData.length}
+              </span>
+            </div>
+          </Link>
           <img src={profile} className="h-8 rounded-full" />
         </div>
       </div>

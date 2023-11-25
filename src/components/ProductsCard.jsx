@@ -1,8 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
+import { ecomAction } from "../features/ecomSlice/ecomSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 const ProductsCard = ({ product }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const _id = product.title;
   const idString = _id.toLowerCase().split(" ").join("");
 
@@ -11,7 +15,7 @@ const ProductsCard = ({ product }) => {
   };
 
   return (
-    <div className="group">
+    <div className="group relative">
       <div
         onClick={handleDetails}
         className="w-full h-72 cursor-pointer overflow-hidden"
@@ -31,7 +35,21 @@ const ProductsCard = ({ product }) => {
             <p className="line-through text-gray-600">${product.oldPrice}</p>
             <p className="font-semibold">${product.price}</p>
           </div>
-          <button className="z-20 w-[150px] py-1 hover:text-gray-900 cursor-pointer duration-500 translate-x-28 group-hover:-translate-x-[82px] bg-red-600 text-white rounded-full font-semibold">
+          <button
+            onClick={() =>
+              dispatch(
+                ecomAction.addToCart({
+                  _id: product._id,
+                  title: product.title,
+                  image: product.image,
+                  price: product.price,
+                  quantity: 1,
+                  description: product.description,
+                })
+              ) & toast.success(`${product.title} is added`)
+            }
+            className="z-20 w-[150px] py-1 hover:text-gray-900 cursor-pointer duration-500 translate-x-28 group-hover:-translate-x-[82px] bg-red-600 text-white rounded-full font-semibold"
+          >
             Add To Cart
           </button>
         </div>
@@ -39,6 +57,25 @@ const ProductsCard = ({ product }) => {
           <p className="font-titleFont">Category: {product.category}</p>
         </div>
       </div>
+      <div className="absolute top-4 right-0">
+        {product.isNew && (
+          <p className="bg-black text-white font-semibold font-titleFont px-6 py-1 rounded-md">
+            Sale
+          </p>
+        )}
+      </div>
+      <ToastContainer
+        position="top-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };
