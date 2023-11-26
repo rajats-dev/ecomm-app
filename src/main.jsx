@@ -7,9 +7,10 @@ import store from "./store/store.jsx";
 import { persistor } from "./store/store.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/integration/react";
+import { app } from "./firebase.config.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Provider store={store}>
+  <Provider app={app} store={store}>
     <PersistGate loading={"loading"} persistor={persistor}>
       <App />
     </PersistGate>

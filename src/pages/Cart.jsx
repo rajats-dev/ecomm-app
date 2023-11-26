@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 // import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
+import StripeCheckout from "react-stripe-checkout";
 
 const Cart = () => {
   const productData = useSelector((state) => state.ecom.productData);

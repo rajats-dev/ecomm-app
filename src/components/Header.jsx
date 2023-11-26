@@ -4,9 +4,12 @@ import cart from "../assets/cart.png";
 import profile from "../assets/profile.jpg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
   const productData = useSelector((state) => state.ecom.productData);
+  const userInfo = useSelector((state) => state.ecom.userInfo);
+  console.log(userInfo);
   return (
     <div className="w-full h-20 bg-slate-900 border-b-[4px] border-b-orange-400 sticky top-0 z-50">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
@@ -35,13 +38,27 @@ const Header = () => {
           </ul>
           <Link to={`/cart`}>
             <div className="relative px-4">
-              <img src={cart} alt="cart" className="w-9" />
+              <img src={cart} alt="cart" className="w-8" />
               <span className="text-white text-[1px] bg-red-500 absolute bottom-4 left-8 rounded-full px-2 font-semibold">
                 {productData.length}
               </span>
             </div>
           </Link>
-          <img src={profile} className="h-8 rounded-full" />
+          <Link to="/login">
+            {userInfo ? (
+              <img
+                src={userInfo.image}
+                className="h-7 rounded-full items-center"
+              />
+            ) : (
+              <CgProfile className="text-2xl text-white items-center" />
+            )}
+          </Link>
+          {/* {userInfo && (
+            <p className="text-white font-semibold flex items-center">
+              {userInfo.name}
+            </p>
+          )} */}
         </div>
       </div>
     </div>

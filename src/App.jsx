@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import productsData from "./api/Api";
 import Product from "./components/Product";
+import Login from "./pages/Login";
 
 const Layout = () => {
   return (
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <Product />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

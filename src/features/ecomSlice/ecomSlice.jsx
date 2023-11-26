@@ -17,11 +17,13 @@ const ecomSlice = createSlice({
         item.quantity += action.payload.quantity;
       }
     },
+
     deleteItem: (state, action) => {
       state.productData = state.productData.filter(
         (item) => item._id !== action.payload
       );
     },
+
     increamentQuantity: (state, action) => {
       const item = state.productData.find(
         (item) => item._id === action.payload._id
@@ -30,6 +32,7 @@ const ecomSlice = createSlice({
         item.quantity++;
       }
     },
+
     decrementQuantity: (state, action) => {
       const item = state.productData.find(
         (item) => item._id === action.payload._id
@@ -40,8 +43,16 @@ const ecomSlice = createSlice({
         item.quantity--;
       }
     },
+
     resetCart: (state) => {
       state.productData = [];
+    },
+
+    addUser: (state, action) => {
+      state.userInfo = action.payload;
+    },
+    removeUser: (state) => {
+      state.userInfo = null;
     },
   },
 });
