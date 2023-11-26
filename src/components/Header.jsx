@@ -9,7 +9,7 @@ import { CgProfile } from "react-icons/cg";
 const Header = () => {
   const productData = useSelector((state) => state.ecom.productData);
   const userInfo = useSelector((state) => state.ecom.userInfo);
-  console.log(userInfo);
+
   return (
     <div className="w-full h-20 bg-slate-900 border-b-[4px] border-b-orange-400 sticky top-0 z-50">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
@@ -26,9 +26,11 @@ const Header = () => {
             <li className="hover:text-orange-400 cursor-pointer duration-300">
               Pages
             </li>
-            <li className="hover:text-orange-400 cursor-pointer duration-300">
-              Shop
-            </li>
+            <Link to="/shop">
+              <li className="hover:text-orange-400 cursor-pointer duration-300">
+                Shop
+              </li>
+            </Link>
             <li className="hover:text-orange-400 cursor-pointer duration-300">
               Element
             </li>
@@ -54,11 +56,6 @@ const Header = () => {
               <CgProfile className="text-2xl text-white items-center" />
             )}
           </Link>
-          {/* {userInfo && (
-            <p className="text-white font-semibold flex items-center">
-              {userInfo.name}
-            </p>
-          )} */}
         </div>
       </div>
     </div>
