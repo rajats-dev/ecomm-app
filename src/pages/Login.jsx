@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import githubLogo from "../assets/githubLogo.png";
 import googleLogo from "../assets/googleLogo.png";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,10 +10,10 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { ecomAction } from "../features/ecomSlice/ecomSlice";
+import { authAction } from "../features/authSlice/AuthSlice";
 
 const Login = () => {
-  const userInfo = useSelector((state) => state.ecom.userInfo);
+  const userInfo = useSelector((state) => state.auth.userInfo);
   const navigate = useNavigate("");
   const dispatch = useDispatch();
   const auth = getAuth();
@@ -25,14 +25,14 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-        dispatch(
-          ecomAction.addUser({
-            _id: user.uid,
-            name: user.displayName,
-            email: user.email,
-            image: user.photoURL,
-          })
-        );
+        const obj = {
+          _id: user.uid,
+          name: user.displayName,
+          email: user.email,
+          image: user.photoURL,
+        };
+        dispatch(authAction.addUser(obj));
+        localStorage.setItem("obj", JSON.stringify(obj));
 
         setTimeout(() => {
           navigate("/");
@@ -48,7 +48,8 @@ const Login = () => {
     signOut(auth)
       .then(() => {
         toast.success("Log Out Succesfull");
-        dispatch(ecomAction.removeUser());
+        dispatch(authAction.removeUser());
+        localStorage.removeItem("obj");
       })
       .catch((error) => {
         console.log(error);

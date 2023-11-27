@@ -1,14 +1,13 @@
 import React from "react";
 import logo from "../assets/logo.jpg";
 import cart from "../assets/cart.png";
-import profile from "../assets/profile.jpg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
   const productData = useSelector((state) => state.ecom.productData);
-  const userInfo = useSelector((state) => state.ecom.userInfo);
+  const userInfo = useSelector((state) => state.auth.userInfo);
 
   return (
     <div className="w-full h-20 bg-slate-900 border-b-[4px] border-b-orange-400 sticky top-0 z-50">
@@ -26,11 +25,13 @@ const Header = () => {
             <li className="hover:text-orange-400 cursor-pointer duration-300">
               Pages
             </li>
-            <Link to="/shop">
-              <li className="hover:text-orange-400 cursor-pointer duration-300">
-                Shop
-              </li>
-            </Link>
+            {userInfo && (
+              <Link to="/shop">
+                <li className="hover:text-orange-400 cursor-pointer duration-300">
+                  Shop
+                </li>
+              </Link>
+            )}
             <li className="hover:text-orange-400 cursor-pointer duration-300">
               Element
             </li>

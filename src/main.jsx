@@ -4,15 +4,11 @@ import App from "./App.jsx";
 import "./index.css";
 import { Provider } from "react-redux";
 import store from "./store/store.jsx";
-import { persistor } from "./store/store.jsx";
 import "react-toastify/dist/ReactToastify.css";
-import { PersistGate } from "redux-persist/integration/react";
 import { app } from "./firebase.config.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider app={app} store={store}>
-    <PersistGate loading={"loading"} persistor={persistor}>
-      <App />
-    </PersistGate>
+    <App />
   </Provider>
 );

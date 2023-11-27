@@ -1,7 +1,9 @@
 import React from "react";
 import ProductsCard from "./ProductsCard";
+import { useSelector } from "react-redux";
 
 const Products = ({ products }) => {
+  const userInfo = useSelector((state) => state.auth.userInfo);
   return (
     <div className="py-5">
       <div className="flex flex-col items-center gap-3">
@@ -15,11 +17,17 @@ const Products = ({ products }) => {
           voluptates neque magnam soluta aperiam omnis.
         </p>
       </div>
-      <div className="max-w-screen-xl mx-auto py-10 grid grid-cols-4 gap-7">
-        {products.map((item) => (
-          <ProductsCard key={item._id} product={item} />
-        ))}
-      </div>
+      {userInfo ? (
+        <div className="max-w-screen-xl mx-auto py-10 grid grid-cols-4 gap-7">
+          {products.map((item) => (
+            <ProductsCard key={item._id} product={item} />
+          ))}
+        </div>
+      ) : (
+        <p className="flex items-center justify-center max-w-full bg-black rounded-lg text-white h-12 m-6">
+          Please Login To See The Products!
+        </p>
+      )}
     </div>
   );
 };

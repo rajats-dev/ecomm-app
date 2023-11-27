@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
@@ -13,6 +13,8 @@ import productsData from "./api/Api";
 import Product from "./components/Product";
 import Login from "./pages/Login";
 import Shop from "./pages/Shop";
+import { authAction } from "./features/authSlice/AuthSlice";
+import { useDispatch } from "react-redux";
 
 const Layout = () => {
   return (
@@ -57,6 +59,13 @@ const router = createBrowserRouter([
 ]);
 
 const App = function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const obj = localStorage.getItem("obj");
+    const objParsed = JSON.parse(obj);
+    dispatch(authAction.addUser(objParsed));
+  }, [dispatch]);
+
   return (
     <div>
       <RouterProvider router={router} />
