@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
-// import StripeCheckout from "react-stripe-checkout";
-import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
-import getCartDataRetrive from "../store/reducers/getCardDataRetrive";
 
 const Cart = () => {
   const productData = useSelector((state) => state.ecom.productData);
-  const userInfo = useSelector((state) => state.ecom.userInfo);
+  const userInfo = useSelector((state) => state.auth.userInfo);
   const [payNow, setPayNow] = useState(false);
   const [totalAmt, setTotalAmt] = useState("");
-  const dispatch = useDispatch();
 
   useEffect(() => {
     let price = 0;
