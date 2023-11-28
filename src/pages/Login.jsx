@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import githubLogo from "../assets/githubLogo.png";
+import React from "react";
 import googleLogo from "../assets/googleLogo.png";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +9,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { authAction } from "../features/authSlice/AuthSlice";
+import { authAction } from "../features/authSlice/authSlice";
 
 const Login = () => {
   const userInfo = useSelector((state) => state.auth.userInfo);

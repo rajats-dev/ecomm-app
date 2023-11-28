@@ -13,7 +13,7 @@ import productsData from "./api/Api";
 import Product from "./components/Product";
 import Login from "./pages/Login";
 import Shop from "./pages/Shop";
-import { authAction } from "./features/authSlice/AuthSlice";
+import { authAction } from "./features/authSlice/authSlice";
 import { useDispatch } from "react-redux";
 import getCartDataRetrive from "./store/reducers/getCardDataRetrive";
 
