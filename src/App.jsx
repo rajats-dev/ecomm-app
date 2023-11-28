@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import Shop from "./pages/Shop";
 import { authAction } from "./features/authSlice/AuthSlice";
 import { useDispatch } from "react-redux";
+import getCartDataRetrive from "./store/reducers/getCardDataRetrive";
 
 const Layout = () => {
   return (
@@ -64,6 +65,7 @@ const App = function App() {
     const obj = localStorage.getItem("obj");
     const objParsed = JSON.parse(obj);
     dispatch(authAction.addUser(objParsed));
+    dispatch(getCartDataRetrive());
   }, [dispatch]);
 
   return (

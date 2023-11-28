@@ -21,7 +21,6 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(auth);
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;

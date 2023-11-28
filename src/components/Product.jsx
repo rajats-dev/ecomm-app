@@ -2,16 +2,14 @@ import React, { useEffect, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { ecomAction } from "../features/ecomSlice/ecomSlice";
 import { ToastContainer, toast } from "react-toastify";
+import getCartDataStore from "../store/reducers/getCartDataStore";
 
 const Product = () => {
   const [details, setDetails] = useState("");
   const [baseQty, setBaseQty] = useState(1);
   const dispatch = useDispatch();
   const location = useLocation();
-
-  console.log(details);
 
   useEffect(() => {
     setDetails(location.state.item);
@@ -79,18 +77,10 @@ const Product = () => {
               </div>
             </div>
             <button
-              onClick={() =>
-                dispatch(
-                  ecomAction.addToCart({
-                    _id: details._id,
-                    title: details.title,
-                    image: details.image,
-                    price: details.price,
-                    quantity: baseQty,
-                    description: details.description,
-                  })
-                ) & toast.success(`${details.title} is added`)
-              }
+              onClick={() => {
+                dispatch(getCartDataStore({ ...details, quantity: baseQty })) &
+                  toast.success(`${details.title} is added`);
+              }}
               className="bg-black text-white py-3 px-6 active:bg-gray-800 rounded-md hover:bg-red-600"
             >
               Add To Cart

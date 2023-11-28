@@ -6,8 +6,6 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const data = useLoaderData();
 
-  console.log(data);
-
   useEffect(() => {
     setProducts(data.data);
   }, []);

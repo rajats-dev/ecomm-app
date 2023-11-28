@@ -1,29 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import getCartDataRetrive from "../../store/reducers/getCardDataRetrive";
+import getCartDataStore from "../../store/reducers/getCartDataStore";
+import getCartDataDelete from "../../store/reducers/getCartDataDelete";
 
 const ecomSlice = createSlice({
   name: "ecom",
   initialState: {
     productData: [],
-    userInfo: null,
   },
   reducers: {
-    addToCart: (state, action) => {
-      const item = state.productData.find(
-        (item) => item._id === action.payload._id
-      );
-      if (!item) {
-        state.productData.push(action.payload);
-      } else {
-        item.quantity += action.payload.quantity;
-      }
-    },
-
-    deleteItem: (state, action) => {
-      state.productData = state.productData.filter(
-        (item) => item._id !== action.payload
-      );
-    },
-
     increamentQuantity: (state, action) => {
       const item = state.productData.find(
         (item) => item._id === action.payload._id
@@ -47,13 +32,32 @@ const ecomSlice = createSlice({
     resetCart: (state) => {
       state.productData = [];
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getCartDataStore.fulfilled, (state, action) => {
+      const item = state.productData.findIndex(
+        (item) => item._id === action.payload._id
+      );
+      if (item === -1) {
+        state.productData.push(action.payload);
+      } else {
+        state.productData[item] = action.payload;
+      }
+    });
 
-    addUser: (state, action) => {
-      state.userInfo = action.payload;
-    },
-    removeUser: (state) => {
-      state.userInfo = null;
-    },
+    builder.addCase(getCartDataRetrive.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.productData = action.payload;
+      } else {
+        state.productData = [];
+      }
+    });
+
+    builder.addCase(getCartDataDelete.fulfilled, (state, action) => {
+      state.productData = state.productData.filter(
+        (item) => item._id !== action.payload.id
+      );
+    });
   },
 });
 

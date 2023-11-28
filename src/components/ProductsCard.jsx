@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { ecomAction } from "../features/ecomSlice/ecomSlice";
 import { ToastContainer, toast } from "react-toastify";
+import getCartDataStore from "../store/reducers/getCartDataStore";
 
 const ProductsCard = ({ product }) => {
   const navigate = useNavigate();
@@ -36,18 +36,10 @@ const ProductsCard = ({ product }) => {
             <p className="font-semibold">${product.price}</p>
           </div>
           <button
-            onClick={() =>
-              dispatch(
-                ecomAction.addToCart({
-                  _id: product._id,
-                  title: product.title,
-                  image: product.image,
-                  price: product.price,
-                  quantity: 1,
-                  description: product.description,
-                })
-              ) & toast.success(`${product.title} is added`)
-            }
+            onClick={() => {
+              dispatch(getCartDataStore({ ...product, quantity: 1 })) &
+                toast.success(`${product.title} is added`);
+            }}
             className="z-20 w-[150px] py-1 hover:text-gray-900 cursor-pointer duration-300 translate-x-28 group-hover:-translate-x-[82px] bg-red-600 text-white rounded-full font-semibold"
           >
             Add To Cart
