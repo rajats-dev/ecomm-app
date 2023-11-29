@@ -19,7 +19,7 @@ const getCartDataDelete = createAsyncThunk(
           : `https://ecomm-app-9428f-default-rtdb.firebaseio.com/${emailId}.json`
       );
 
-      return { id: item._id };
+      return { id: item.id };
     } catch (error) {
       console.log(error.message);
     }

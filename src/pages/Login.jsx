@@ -24,7 +24,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         const obj = {
-          _id: user.uid,
+          id: user.uid,
           name: user.displayName,
           email: user.email,
           image: user.photoURL,

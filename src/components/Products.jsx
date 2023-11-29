@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 const Products = ({ products }) => {
   const userInfo = useSelector((state) => state.auth.userInfo);
+
   return (
     <div className="py-5">
       <div className="flex flex-col items-center gap-3">
@@ -18,9 +19,9 @@ const Products = ({ products }) => {
         </p>
       </div>
       {userInfo ? (
-        <div className="max-w-screen-xl mx-auto py-10 grid grid-cols-4 gap-7">
+        <div className="max-w-screen-xl mx-auto py-10 grid grid-cols-4 gap-4">
           {products.map((item) => (
-            <ProductsCard key={item._id} product={item} />
+            <ProductsCard key={item.id} product={item} />
           ))}
         </div>
       ) : (

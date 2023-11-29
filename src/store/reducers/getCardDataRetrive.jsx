@@ -22,7 +22,7 @@ const getCartDataRetrive = createAsyncThunk(
       for (const key in data) {
         cartItem.push({
           ckey: key,
-          _id: data[key]._id,
+          id: data[key].id,
           title: data[key].title,
           image: data[key].image,
           price: data[key].price,

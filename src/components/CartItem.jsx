@@ -20,7 +20,7 @@ const CartItem = () => {
           <div>
             {productData.map((item) => (
               <div
-                key={item._id}
+                key={item.id}
                 className="flex items-center justify-between gap-6 mt-6"
               >
                 <div className="flex items-center gap-2">
@@ -46,7 +46,7 @@ const CartItem = () => {
                         dispatch(getCartDataStore({ ...item, quantity: -1 }));
                         dispatch(
                           ecomAction.decrementQuantity({
-                            _id: item._id,
+                            id: item.id,
                             title: item.title,
                             image: item.image,
                             price: item.price,
@@ -65,7 +65,7 @@ const CartItem = () => {
                         dispatch(getCartDataStore({ ...item, quantity: 1 }));
                         dispatch(
                           ecomAction.increamentQuantity({
-                            _id: item._id,
+                            id: item.id,
                             title: item.title,
                             image: item.image,
                             price: item.price,

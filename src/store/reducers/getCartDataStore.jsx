@@ -12,8 +12,8 @@ const getCartDataStore = createAsyncThunk(
     } = getState();
 
     const emailId = email.replace(/[@.]/g, "");
-    const existingItem = productData.findIndex((ele) => ele._id === obj._id);
-    const item = productData.find((ele) => ele._id === obj._id);
+    const existingItem = productData.findIndex((ele) => ele.id === obj.id);
+    const item = productData.find((ele) => ele.id === obj.id);
 
     if (existingItem === -1) {
       try {
@@ -24,7 +24,7 @@ const getCartDataStore = createAsyncThunk(
 
         return {
           ckey: res.data.name,
-          _id: obj._id,
+          id: obj.id,
           title: obj.title,
           image: obj.image,
           price: obj.price,

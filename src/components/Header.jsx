@@ -10,7 +10,7 @@ const Header = () => {
   const userInfo = useSelector((state) => state.auth.userInfo);
 
   return (
-    <div className="w-full h-20 bg-slate-900 border-b-[4px] border-b-orange-400 sticky top-0 z-50">
+    <div className="w-full h-16 bg-slate-900 border-b-[4px] border-b-orange-400 sticky top-0 z-50">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
         <Link to="/">
           <div>
@@ -19,9 +19,11 @@ const Header = () => {
         </Link>
         <div className="flex item-center">
           <ul className="flex gap-5 text-white font-bold mr-3">
-            <li className="hover:text-orange-400 cursor-pointer duration-300">
-              Home
-            </li>
+            <Link to="/">
+              <li className="hover:text-orange-400 cursor-pointer duration-300">
+                Home
+              </li>
+            </Link>
             <li className="hover:text-orange-400 cursor-pointer duration-300">
               Pages
             </li>
