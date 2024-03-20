@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import Cart from "./pages/Cart";
+// import Cart from "./pages/Cart";
 import Footer from "./components/Footer";
 import {
   createBrowserRouter,
@@ -16,6 +16,9 @@ import Shop from "./pages/Shop";
 import { authAction } from "./features/authSlice/authSlice";
 import { useDispatch } from "react-redux";
 import getCartDataRetrive from "./store/reducers/getCardDataRetrive";
+import { lazy } from "react";
+
+const Cart = lazy(() => import("./pages/Cart"));
 
 const Layout = () => {
   return (
@@ -40,7 +43,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={"...loading"}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "/product/:id",

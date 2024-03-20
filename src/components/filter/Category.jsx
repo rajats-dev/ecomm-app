@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { ecomAction } from "../../features/ecomSlice/ecomSlice";
 
-const Category = (props) => {
+const Category = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -72,4 +72,4 @@ const Category = (props) => {
   );
 };
 
-export default Category;
+export default memo(Category);
