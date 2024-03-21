@@ -17,6 +17,14 @@ import { authAction } from "./features/authSlice/authSlice";
 import { useDispatch } from "react-redux";
 import getCartDataRetrive from "./store/reducers/getCardDataRetrive";
 import { lazy } from "react";
+import Navbar from "./admin/components/Navbar";
+import AdminFooter from "./admin/components/AdminFooter";
+import AdminHome from "./admin/pages/AdminHome";
+import AdminProducts from "./admin/pages/AdminProducts";
+import AdminUsers from "./admin/pages/AdminUsers";
+import Menu from "./admin/components/Menu";
+import AdminLogin from "./admin/pages/AdminLogin";
+import "./admin/style/adminGloble.scss";
 
 const Cart = lazy(() => import("./pages/Cart"));
 
@@ -27,6 +35,18 @@ const Layout = () => {
       <ScrollRestoration />
       <Outlet />
       <Footer />
+    </div>
+  );
+};
+
+const AdminLayout = () => {
+  return (
+    <div className="main">
+      <Navbar />
+      <Menu />
+      <ScrollRestoration />
+      <Outlet />
+      <AdminFooter />
     </div>
   );
 };
@@ -63,6 +83,28 @@ const router = createBrowserRouter([
         element: <Login />,
       },
     ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        path: "/admin/home",
+        element: <AdminHome />,
+      },
+      {
+        path: "/admin/products",
+        element: <AdminProducts />,
+      },
+      {
+        path: "/admin/users",
+        element: <AdminUsers />,
+      },
+    ],
+  },
+  {
+    path: "/admin/login",
+    element: <AdminLogin />,
   },
 ]);
 
