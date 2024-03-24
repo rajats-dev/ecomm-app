@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 // import Cart from "./pages/Cart";
@@ -19,7 +19,7 @@ import getCartDataRetrive from "./store/reducers/getCardDataRetrive";
 import { lazy } from "react";
 import Navbar from "./admin/components/Navbar";
 import AdminFooter from "./admin/components/AdminFooter";
-import AdminHome from "./admin/pages/AdminHome";
+import AdminHome from "./admin/pages/Home/AdminHome";
 import AdminProducts from "./admin/pages/AdminProducts";
 import AdminUsers from "./admin/pages/AdminUsers";
 import Menu from "./admin/components/Menu";
@@ -43,9 +43,15 @@ const AdminLayout = () => {
   return (
     <div className="main">
       <Navbar />
-      <Menu />
-      <ScrollRestoration />
-      <Outlet />
+      <div className="container">
+        <div className="menuContainer">
+          <Menu />
+        </div>
+        <ScrollRestoration />
+        <div className="contentContainer">
+          <Outlet />
+        </div>
+      </div>
       <AdminFooter />
     </div>
   );
