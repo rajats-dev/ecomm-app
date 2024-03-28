@@ -32,10 +32,24 @@
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.132);
     background-color: white;
   }
+
+  .box5 {
+    grid-column: span 3;
+    grid-row: span 3;
+    width: 40rem;
+    height: fit-content;
+  }
+
+  .box6 {
+    grid-column: span 1;
+    grid-row: span 3;
+    margin-left: -4rem;
+    height: 25rem;
+  }
 }
 
 .widget {
-  @include flex(row, between);
+  @include flex(row);
   .widgetInfo {
     padding: 10px;
     > p {
@@ -68,5 +82,60 @@
   }
   span {
     position: relative;
+  }
+}
+
+// .graph-container {
+//   @include flex(row, unset, unset, 2rem);
+//   padding: 0 2rem 2rem 0;
+//   > div {
+//     background-color: white;
+//     border-radius: 10px;
+//   }
+
+.revenue-chart {
+  // width: 100%;
+  padding: 1rem 2rem;
+
+  > h2 {
+    @include heading;
+    margin: 1rem 0 2rem 0.25rem;
+    text-align: center;
+  }
+}
+// }
+
+.dashboard-categories {
+  > h2 {
+    @include heading;
+    margin: 2rem 0 2rem 0.25rem;
+    text-align: center;
+  }
+
+  .category-item {
+    width: 100%;
+    @include flex(row);
+    padding: 1rem;
+    > h5 {
+      font-size: small;
+      letter-spacing: 1px;
+      font-weight: 300;
+    }
+    > div {
+      margin-left: auto;
+      width: 5rem;
+      background-color: rgb(217, 217, 217);
+      border-radius: 20px;
+      height: 0.5rem;
+      flex: none;
+      > div {
+        border-radius: 20px;
+        height: 100%;
+      }
+    }
+    > span {
+      font-size: x-small;
+      font-weight: bold;
+    }
   }
 }

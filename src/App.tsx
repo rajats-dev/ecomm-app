@@ -41,7 +41,9 @@ const AdminLayout = () => {
     <div className="adminContainer">
       <AdminSlider />
       <ScrollRestoration />
-      <Outlet />
+      <div className="childContainer">
+        <Outlet />
+      </div>
     </div>
   );
 };

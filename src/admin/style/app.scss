@@ -29,7 +29,6 @@ a {
 
 .adminContainer {
   @include grid(1fr 4fr, 2rem);
-  height: 100vh;
   background-color: rgb(247, 247, 247);
   > aside {
     width: 100%;
@@ -39,6 +38,8 @@ a {
     overflow-y: auto;
     &::-webkit-scrollbar {
       display: none;
+      background: #f1f1f1;
+      width: 10px;
     }
     > h2 {
       font-weight: bold;
