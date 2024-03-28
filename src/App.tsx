@@ -17,14 +17,11 @@ import { authAction } from "./features/authSlice/authSlice";
 import { useDispatch } from "react-redux";
 import getCartDataRetrive from "./store/reducers/getCardDataRetrive";
 import { lazy } from "react";
-import Navbar from "./admin/components/Navbar";
-import AdminFooter from "./admin/components/AdminFooter";
-import AdminHome from "./admin/pages/Home/AdminHome";
-import AdminProducts from "./admin/pages/AdminProducts";
-import AdminUsers from "./admin/pages/AdminUsers";
-import Menu from "./admin/components/Menu";
-import AdminLogin from "./admin/pages/AdminLogin";
-import "./admin/style/adminGloble.scss";
+import Dashboard from "./admin/pages/main/Dashboard";
+import Products from "./admin/pages/main/Products";
+import Customers from "./admin/pages/main/Customers";
+import Transaction from "./admin/pages/main/Transaction";
+import AdminSlider from "./admin/components/AdminSlider";
 
 const Cart = lazy(() => import("./pages/Cart"));
 
@@ -41,18 +38,10 @@ const Layout = () => {
 
 const AdminLayout = () => {
   return (
-    <div className="main">
-      <Navbar />
-      <div className="container">
-        <div className="menuContainer">
-          <Menu />
-        </div>
-        <ScrollRestoration />
-        <div className="contentContainer">
-          <Outlet />
-        </div>
-      </div>
-      <AdminFooter />
+    <div className="adminContainer">
+      <AdminSlider />
+      <ScrollRestoration />
+      <Outlet />
     </div>
   );
 };
@@ -95,22 +84,22 @@ const router = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       {
-        path: "/admin/home",
-        element: <AdminHome />,
+        path: "/admin/dashboard",
+        element: <Dashboard />,
       },
       {
-        path: "/admin/products",
-        element: <AdminProducts />,
+        path: "/admin/product",
+        element: <Products />,
       },
       {
-        path: "/admin/users",
-        element: <AdminUsers />,
+        path: "/admin/customer",
+        element: <Customers />,
+      },
+      {
+        path: "/admin/transaction",
+        element: <Transaction />,
       },
     ],
-  },
-  {
-    path: "/admin/login",
-    element: <AdminLogin />,
   },
 ]);
 

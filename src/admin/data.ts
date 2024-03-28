@@ -1,119 +1,77 @@
-export const menu = [
-  {
-    id: 1,
-    title: "Main",
-    listItems: [
-      {
-        id: 1,
-        title: "Homepage",
-        url: "/admin/home",
-        icon: "home.svg",
-      },
-      {
-        id: 2,
-        title: "Profile",
-        url: "/admin/users/1",
-        icon: "user.svg",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Lists",
-    listItems: [
-      {
-        id: 1,
-        title: "Users",
-        url: "/admin/users",
-        icon: "user.svg",
-      },
-      {
-        id: 2,
-        title: "Products",
-        url: "/admin/products",
-        icon: "product.svg",
-      },
-      {
-        id: 3,
-        title: "Orders",
-        url: "/admin/orders",
-        icon: "order.svg",
-      },
-      {
-        id: 4,
-        title: "Posts",
-        url: "/admin/posts",
-        icon: "post2.svg",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "General",
-    listItems: [
-      {
-        id: 1,
-        title: "Elements",
-        url: "/admin",
-        icon: "element.svg",
-      },
-      {
-        id: 2,
-        title: "Notes",
-        url: "/admin",
-        icon: "note.svg",
-      },
-      {
-        id: 3,
-        title: "Forms",
-        url: "/admin",
-        icon: "form.svg",
-      },
-      {
-        id: 4,
-        title: "Calendar",
-        url: "/admin",
-        icon: "calendar.svg",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Maintenance",
-    listItems: [
-      {
-        id: 1,
-        title: "Settings",
-        url: "/admin",
-        icon: "setting.svg",
-      },
-      {
-        id: 2,
-        title: "Backups",
-        url: "/admin",
-        icon: "backup.svg",
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "Analytics",
-    listItems: [
-      {
-        id: 1,
-        title: "Charts",
-        url: "/admin",
-        icon: "chart.svg",
-      },
-      {
-        id: 2,
-        title: "Logs",
-        url: "/admin",
-        icon: "log.svg",
-      },
-    ],
-  },
-];
+// export const menu = [
+//   {
+//     id: 1,
+//     title: "Main",
+//     listItems: [
+//       {
+//         id: 1,
+//         title: "DashBoard",
+//         url: "/admin/dashboard",
+//         icon: RiDashboardFill,
+//       },
+//       {
+//         id: 2,
+//         title: "Product",
+//         url: "/admin/product",
+//         icon: "user.svg",
+//       },
+//       {
+//         id: 3,
+//         title: "Customer",
+//         url: "/admin/customer",
+//         icon: "user.svg",
+//       },
+//       {
+//         id: 4,
+//         title: "Trasction",
+//         url: "/admin/transaction",
+//         icon: "user.svg",
+//       },
+//     ],
+//   },
+//   {
+//     id: 2,
+//     title: "Charts",
+//     listItems: [
+//       {
+//         id: 1,
+//         title: "Bar",
+//         url: "/admin/bar",
+//         icon: "user.svg",
+//       },
+//       {
+//         id: 2,
+//         title: "Pie",
+//         url: "/admin/pie",
+//         icon: "product.svg",
+//       },
+//       {
+//         id: 3,
+//         title: "Line",
+//         url: "/admin/line",
+//         icon: "order.svg",
+//       },
+//     ],
+//   },
+//   {
+//     id: 3,
+//     title: "Apps",
+//     listItems: [
+//       {
+//         id: 1,
+//         title: "Coupons",
+//         url: "/admin/coupons",
+//         icon: "element.svg",
+//       },
+//       {
+//         id: 1,
+//         title: "StopWatch",
+//         url: "/admin/stopwatch",
+//         icon: "element.svg",
+//       },
+//     ],
+//   },
+// ];
 
 export const topDealUsers = [
   {
