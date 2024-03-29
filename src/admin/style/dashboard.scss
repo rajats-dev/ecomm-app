@@ -36,7 +36,7 @@
   .box5 {
     grid-column: span 3;
     grid-row: span 3;
-    width: 40rem;
+    width: 41rem;
     height: fit-content;
   }
 
@@ -44,7 +44,7 @@
     grid-column: span 1;
     grid-row: span 3;
     margin-left: -4rem;
-    height: 25rem;
+    height: 26rem;
   }
 }
 
@@ -136,6 +136,47 @@
     > span {
       font-size: x-small;
       font-weight: bold;
+    }
+  }
+}
+
+.transaction-container {
+  display: flex;
+  // padding: 0 1rem 2rem 0;
+  height: 23rem;
+  margin-bottom: 2rem;
+  > div {
+    background-color: white;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.132);
+    border-radius: 10px;
+  }
+  .gender-chart {
+    // width: 100%;
+    // max-width: 20rem;
+
+    position: relative;
+    > h2 {
+      text-align: center;
+      margin: 1.5rem 0 2rem 0;
+      @include heading;
+    }
+    > p {
+      @include posCenter;
+      font-size: 2rem;
+      color: rgba(0, 0, 0, 0.634);
+    }
+  }
+
+  .transaction-box {
+    width: 100%;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    padding: 1rem;
+    overflow-x: auto;
+    > h2 {
+      text-align: center;
+      margin: 2px 0 0 0;
+      @include heading;
     }
   }
 }
