@@ -25,6 +25,9 @@ import AdminSlider from "./admin/components/AdminSlider";
 import NewProduct from "./admin/pages/management/NewProduct";
 import ProductManagement from "./admin/pages/management/ProductManagement";
 import TransactionManagement from "./admin/pages/management/TransactionManagement";
+import BarCharts from "./admin/pages/charts/BarCharts";
+import LineCharts from "./admin/pages/charts/LineCharts";
+import PieCharts from "./admin/pages/charts/PieCharts";
 
 const Cart = lazy(() => import("./pages/Cart"));
 
@@ -115,6 +118,18 @@ const router = createBrowserRouter([
       {
         path: "/admin/transaction/:id",
         element: <TransactionManagement />,
+      },
+      {
+        path: "/admin/chart/bar",
+        element: <BarCharts />,
+      },
+      {
+        path: "/admin/chart/line",
+        element: <LineCharts />,
+      },
+      {
+        path: "/admin/chart/Pie",
+        element: <PieCharts />,
       },
     ],
   },

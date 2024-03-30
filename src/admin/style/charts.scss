@@ -1,0 +1,51 @@
+.chart-container {
+  background-color: white;
+  padding: 4rem;
+  overflow-y: auto;
+  > h1 {
+    margin: 0 0 5rem 2rem;
+    font-weight: bold;
+    font-size: x-large;
+  }
+  > section {
+    width: 70%;
+    margin: 1rem auto;
+
+    > div {
+      max-width: 25rem;
+      margin: auto;
+      margin-top: 6rem;
+      margin-bottom: -1rem;
+    }
+
+    > h2 {
+      margin: 2rem 0;
+      text-align: center;
+      @include heading(2px);
+    }
+  }
+}
+
+.pie-container {
+  background-color: white;
+  padding: 4rem;
+  overflow-y: auto;
+  > h1 {
+    margin: 0 0 2rem 2rem;
+    font-weight: bold;
+    font-size: x-large;
+  }
+  .pie-chart {
+    @include grid(repeat(2, 1fr), 1rem);
+    > section {
+      width: 70%;
+      margin: auto;
+
+      > h2 {
+        margin: 2rem 0;
+        text-align: center;
+        @include heading(2px);
+      }
+    }
+  }
+}
