@@ -22,6 +22,9 @@ import Products from "./admin/pages/main/Products";
 import Customers from "./admin/pages/main/Customers";
 import Transaction from "./admin/pages/main/Transaction";
 import AdminSlider from "./admin/components/AdminSlider";
+import NewProduct from "./admin/pages/management/NewProduct";
+import ProductManagement from "./admin/pages/management/ProductManagement";
+import TransactionManagement from "./admin/pages/management/TransactionManagement";
 
 const Cart = lazy(() => import("./pages/Cart"));
 
@@ -100,6 +103,18 @@ const router = createBrowserRouter([
       {
         path: "/admin/transaction",
         element: <Transaction />,
+      },
+      {
+        path: "/admin/product/new",
+        element: <NewProduct />,
+      },
+      {
+        path: "/admin/product/:id",
+        element: <ProductManagement />,
+      },
+      {
+        path: "/admin/transaction/:id",
+        element: <TransactionManagement />,
       },
     ],
   },
