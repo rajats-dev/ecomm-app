@@ -9,15 +9,14 @@ import DashboardTable from "../../components/DashboardTable";
 
 const Dashboard = () => {
   return (
-    <div>
-      <main className="dashboard">
-        <div className="bar">
-          <BsSearch />
-          <input type="text" placeholder="Search for data, users, docs" />
-          <FaRegBell />
-          <img src={userImg} alt="User" />
-        </div>
-      </main>
+    <main className="dashboard">
+      <div className="bar">
+        <BsSearch />
+        <input type="text" placeholder="Search for data, users, docs" />
+        <FaRegBell />
+        <img src={userImg} alt="User" />
+      </div>
+
       <section className="widget-container">
         <div className="box box1">
           <WidgetItem
@@ -82,7 +81,7 @@ const Dashboard = () => {
           </div>
         </div>
       </section>
-      <div className="transaction-container">
+      <section className="transaction-container">
         <div className="gender-chart">
           <h2>Gender Ratio</h2>
           <DoughnutChart
@@ -98,8 +97,8 @@ const Dashboard = () => {
         </div>
 
         <DashboardTable data={data.transaction} />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

@@ -2,6 +2,8 @@
 @import "dashboard";
 @import "product";
 @import "charts";
+@import "dashboardapp";
+@import "mediaquery";
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -33,6 +35,7 @@ a {
 .adminContainer {
   @include grid(1fr 4fr, 2rem);
   background-color: rgb(247, 247, 247);
+  height: 100vh;
   > aside {
     width: 100%;
     background-color: white;
@@ -41,8 +44,6 @@ a {
     overflow-y: auto;
     &::-webkit-scrollbar {
       display: none;
-      background: #f1f1f1;
-      width: 10px;
     }
     > h2 {
       font-weight: bold;
@@ -158,4 +159,21 @@ a {
       cursor: not-allowed;
     }
   }
+}
+
+#hamburger {
+  display: grid;
+  place-items: center;
+  @include square(3rem);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(44, 104, 255);
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  background-color: rgb(228, 228, 228);
+  border-radius: 50%;
+  z-index: 10;
 }

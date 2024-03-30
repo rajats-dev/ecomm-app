@@ -28,6 +28,7 @@ import TransactionManagement from "./admin/pages/management/TransactionManagemen
 import BarCharts from "./admin/pages/charts/BarCharts";
 import LineCharts from "./admin/pages/charts/LineCharts";
 import PieCharts from "./admin/pages/charts/PieCharts";
+import Coupon from "./admin/pages/apps/Coupon";
 
 const Cart = lazy(() => import("./pages/Cart"));
 
@@ -47,9 +48,7 @@ const AdminLayout = () => {
     <div className="adminContainer">
       <AdminSlider />
       <ScrollRestoration />
-      <div className="childContainer">
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 };
@@ -130,6 +129,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/chart/Pie",
         element: <PieCharts />,
+      },
+      {
+        path: "/admin/app/coupon",
+        element: <Coupon />,
       },
     ],
   },

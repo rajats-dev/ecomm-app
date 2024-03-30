@@ -106,12 +106,12 @@ const Products = () => {
     true
   );
   return (
-    <div>
-      <main>{Table()}</main>
+    <main>
+      {Table()}
       <Link to="/admin/product/new" className="create-product-btn">
         <FaPlus />
       </Link>
-    </div>
+    </main>
   );
 };
 
